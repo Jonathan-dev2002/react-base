@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ObjState from './compoents/ObjState'
+import ArrState from './compoents/ArrState'
 
 function App() {
   const [name, setName] = useState<string>('jonathan')
@@ -21,6 +22,9 @@ function App() {
       <button onClick={() => setIsvisble(!isVisiable)}>{isVisiable ? "ซ่อน" : "แสดง"}</button>
       <hr />
       <ObjState />
+
+      <hr />
+      <ArrState />
     </>
   )
 }
