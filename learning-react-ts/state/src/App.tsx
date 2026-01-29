@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ObjState from './compoents/ObjState'
 
 function App() {
   const [name, setName] = useState<string>('jonathan')
@@ -17,7 +18,9 @@ function App() {
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <button onClick={() => setSalary(salary + 1000)}>+</button>
       <button onClick={() => setSalary(salary - 1000)}>-</button>
-      <button onClick={()=> setIsvisble(!isVisiable)}>{isVisiable ? "ซ่อน" : "แสดง"}</button>
+      <button onClick={() => setIsvisble(!isVisiable)}>{isVisiable ? "ซ่อน" : "แสดง"}</button>
+      <hr />
+      <ObjState />
     </>
   )
 }
