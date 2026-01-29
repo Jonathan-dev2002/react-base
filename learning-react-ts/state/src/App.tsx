@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import ObjState from './compoents/ObjState'
 import ArrState from './compoents/ArrState'
-
+import Header from './compoents/Header'
 function App() {
   const [name, setName] = useState<string>('jonathan')
   const [salary, setSalary] = useState<number>(20000)
   const [isVisiable, setIsvisble] = useState<boolean>(true)
   return (
     <>
+      <Header title="webapp for learning"/>
+      <hr />
       {isVisiable &&
         (<div>
           <h1>พนักงาน : {name}</h1>
