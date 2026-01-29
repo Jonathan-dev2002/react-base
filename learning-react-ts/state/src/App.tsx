@@ -6,6 +6,7 @@ import EmployeeList from "./compoents/EmployeeList";
 import DeleteBtn from "./compoents/DeleteBtn";
 import UserCard from "./compoents/UserCard";
 import SearchBar from "./compoents/SearchBar";
+import LoginForm from "./compoents/LoginForm";
 
 function App() {
   const [name, setName] = useState<string>("jonathan");
@@ -28,6 +29,9 @@ function App() {
   };
   const handleSearch = (text: string) => {
     setKeyword(text);
+  };
+  const handleLogin = (formData: { username: string; pass: string }) => {
+    alert(`กำลังล็อคอิน: ${formData.username}`);
   };
   return (
     <>
@@ -67,10 +71,16 @@ function App() {
           <UserCard key={u.id} id={u.id} name={u.name} onDelete={removeUser} />
         ))}
       </div>
-        <hr />
+      <hr />
       <div>
-        <SearchBar onSearchChange={handleSearch}/>
+        <SearchBar onSearchChange={handleSearch} />
         <p>You are searching the word : {keyword}</p>
+      </div>
+
+      <hr />
+      <div>
+        <h1>Sign in</h1>
+        <LoginForm onLoginSubmit={handleLogin} />
       </div>
     </>
   );
