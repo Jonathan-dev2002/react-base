@@ -5,6 +5,7 @@ import Header from "./compoents/Header";
 import EmployeeList from "./compoents/EmployeeList";
 import DeleteBtn from "./compoents/DeleteBtn";
 import UserCard from "./compoents/UserCard";
+import SearchBar from "./compoents/SearchBar";
 
 function App() {
   const [name, setName] = useState<string>("jonathan");
@@ -15,7 +16,7 @@ function App() {
     { id: 1, name: "john" },
     { id: 2, name: "joey" },
   ]);
-
+  const [keyword, setKeyword] = useState("");
   const handleDelete = () => {
     setCount(0);
     alert("Delete succes");
@@ -24,6 +25,9 @@ function App() {
   const removeUser = (idToDelete: number) => {
     setUsers(users.filter((u) => u.id !== idToDelete));
     console.log("already delete this user : ", idToDelete);
+  };
+  const handleSearch = (text: string) => {
+    setKeyword(text);
   };
   return (
     <>
@@ -57,11 +61,16 @@ function App() {
         <DeleteBtn onClickDelete={handleDelete} />
       </div>
       <hr />
-      
+
       <div>
         {users.map((u) => (
           <UserCard key={u.id} id={u.id} name={u.name} onDelete={removeUser} />
         ))}
+      </div>
+        <hr />
+      <div>
+        <SearchBar onSearchChange={handleSearch}/>
+        <p>You are searching the word : {keyword}</p>
       </div>
     </>
   );
